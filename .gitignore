@@ -259,3 +259,16 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+WysiwigJS/compilerconfig.json
+WysiwigJS/.babelrc
+WysiwigJS/compilerconfig.json.defaults
+WysiwigJS/package.json
+WysiwigJS/src/css/all.min.css
+WysiwigJS/src/css/DragOld.css
+WysiwigJS/src/css/DragOld.min.css
+WysiwigJS/src/css/DragOld.scss
+WysiwigJS/src/css/fontawesome-free-5.3.1-web.zip
+WysiwigJS/src/css/fontawesome-free-5.3.1-web/*
+WysiwigJS/src/webfonts/*
+WysiwigJS/WysiwigJS.csproj
+WysiwigJS/WysiwigJS.csproj
