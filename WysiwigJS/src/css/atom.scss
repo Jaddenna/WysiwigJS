@@ -1,0 +1,75 @@
+﻿$ewpx: 70px; 
+$ehpx: 300px;
+$mwpx: 20px;
+$mhpx: 20px;
+$ew: $ewpx / 1px;
+$eh: $ehpx / 1px;
+$m: M $ew/2 0;
+$a1: A $ew/2,$eh/2 0 1,0 $ew/2,$eh;
+$a2: A $ew/2,$eh/2 0 1,0 $ew/2,0;
+$m2: M $ew/2 $eh;
+$a21: A $ew/2,$eh/2 0 1,0 $ew/2,0;
+$a22: A $ew/2,$eh/2 0 1,0 $ew/2,$eh;
+$animDuration: 3s;
+$numberEllipses: 6;
+$angle: 360 / ($numberEllipses * 2);
+$animDelay: $animDuration / $numberEllipses;
+
+.centerAbs {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	left: 0;
+	right: 0;
+}
+
+.ellipseContainer {
+	position: relative;
+	height: max($ewpx,$ehpx);
+	width: max($ewpx,$ehpx);
+}
+
+.ellipse
+{
+	background-color: transparent;
+	width: $ewpx;
+	height: $ehpx;
+	border-radius: #{$ewpx} / #{$ehpx};
+	border: 3px solid;
+}
+
+.ellipse::before,
+.ellipse::after{
+	content: '';
+	display: inline-block;
+	width: $mwpx;
+	height: $mhpx;
+	background-color: yellow;
+	border-radius: max($mwpx, $mhpx);
+	border: 2px solid;
+	offset-path: path('#{$m} #{$a1} #{$a2}');
+	animation: followpath $animDuration linear infinite;
+	position:absolute;
+}
+
+.ellipse::after {
+	offset-path: path('#{$m2} #{$a21} #{$a22}');
+}
+
+@for $i from 1 to $numberEllipses {
+	.ellipse-#{$i} {
+		transform: rotate(#{$i * $angle}deg);
+	}
+	.ellipse-#{$i}::before, 
+	.ellipse-#{$i}::after{
+		animation-delay: $i * $animDelay;
+	}
+}
+
+@keyframes followpath {
+	to {
+		motion-offset: 100%;
+		offset-distance: 100%;
+	}
+}

@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+	<link href="src/css/atom.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="ellipseContainer"></div>
+	<script>
+		let ellipses = 6;
+		let ellipseContainer = document.querySelector('.ellipseContainer');
+		for (let i = 0; i < ellipses; i++)
+		{
+			let ellipse = document.createElement('div');
+			ellipse.classList.add('ellipse');
+			ellipse.classList.add('ellipse-' + (i + 1));
+			ellipse.classList.add('centerAbs');
+			ellipseContainer.appendChild(ellipse);
+		}
+	</script>
+</body>
+</html>
